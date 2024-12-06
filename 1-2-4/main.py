@@ -15,8 +15,8 @@ maze_painter.speed(0)
 
 #create maze from inside out
 def draw_barrier():
-    barrier = rand.randint(path_width * 2, (wall_len - path_width))
-    maze_painter.forward(barrier - path_width)
+    door_space = rand.randint(0, wall_len - path_width - wall_gap)
+    maze_painter.forward(door_space - path_width)
     maze_painter.right(90)
     maze_painter.forward(path_width)
     maze_painter.backward(path_width)
@@ -24,14 +24,14 @@ def draw_barrier():
 
 
 for wall in range(21):
-    door = rand.randint(path_width * 2, (wall_len + path_width * 2))
-    maze_painter.forward(door)
+    wall_gap = rand.randint(0, (wall_len - path_width))
+    maze_painter.forward(wall_gap)
     maze_painter.penup()
     maze_painter.forward(path_width)
     maze_painter.pendown()
     if wall > 5:
         draw_barrier()
-    maze_painter.forward(path_width)
+    maze_painter.forward(wall_len)
     maze_painter.left(90)
     wall_len += 15
 
