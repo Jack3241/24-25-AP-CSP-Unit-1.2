@@ -6,10 +6,9 @@ apple_image = "apple.gif"
 basket_image = "basket.jpg"
 
 wn = trtl.Screen()
-wn.setup(width=1, height=1)
+wn.setup(width=2, height=2)
 #make screen aware of new files
 wn.addshape(apple_image)
-wn.addshape(basket_image)
 wn.bgpic("background.gif")
 
 apple = trtl.Turtle()
