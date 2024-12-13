@@ -76,8 +76,11 @@ def basket_move_right():
 
 wn.onkeypress(basket_move_left, "a")
 wn.onkeypress(basket_move_right, "d")
+
+
 draw_basket(basket)
 draw_apple(apple)
 drop_apple()
+
 wn.listen()
 wn.mainloop()
