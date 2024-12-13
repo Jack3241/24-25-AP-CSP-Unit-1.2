@@ -50,12 +50,15 @@ def drop_apple():
     apple.clear()
     apple.hideturtle()
 
-
 def basket_left():
-    basket.goto(-200,basket_height )
+    basket.left(90)
+    basket.forward(10)
+    basket.right(90)
 
 def basket_right():
-    basket.goto(200,basket_height)
+    basket.right(90)
+    basket.forward(10)
+    basket.left(90)
 
 def basket_move_left():
     if ("a" in direction_list):
@@ -63,6 +66,9 @@ def basket_move_left():
 def basket_move_right():
     if ("d" in direction_list):
         basket_right()
+
+
+
 
 
 wn.onkeypress(basket_move_left, "a")
