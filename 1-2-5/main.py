@@ -31,7 +31,7 @@ apple.penup()
 
 basket = trtl.Turtle()
 basket.penup()
-
+#creating apple and basket
 def draw_apple(active_apple):
     active_apple.shape(apple_image)
     apple.showturtle()
@@ -43,40 +43,41 @@ def draw_basket(active_basket):
     wn.update()
     basket.speed(0)
     basket.goto(0, basket_height)
-
+#apple dropping
 def drop_apple():
     apple.speed(2)
     apple.goto(xcor, ground_height)
     apple.clear()
     apple.hideturtle()
 
+
+def reset_apple (apple):
+    if apple < ground_height:
+        newx = rand.randint(-200, 200)
+        newy = 0
+        apple.goto(newx, newy)
+
+
+#imput basket moving left and right
 def basket_left():
-    basket.left(90)
-    basket.forward(10)
-    basket.right(90)
+    basket.goto(basket.xcor()-20, basket_height)
 
 def basket_right():
-    basket.right(90)
-    basket.forward(10)
-    basket.left(90)
+    basket.goto(basket.xcor()+20, basket_height)
 
+#basket move when "a" or "d" is clicked left or right
 def basket_move_left():
-    if ("a" in direction_list):
+    if "a" in direction_list:
         basket_left()
 def basket_move_right():
-    if ("d" in direction_list):
+    if "d" in direction_list:
         basket_right()
-
-
-
 
 
 wn.onkeypress(basket_move_left, "a")
 wn.onkeypress(basket_move_right, "d")
-
-draw_apple(apple)
 draw_basket(basket)
+draw_apple(apple)
 drop_apple()
-
 wn.listen()
 wn.mainloop()
